@@ -1,7 +1,5 @@
 <?php
-
 namespace Farre;
-
 use Silex\Application;
 
 /**
@@ -40,9 +38,7 @@ class TutorialesController {
             'texto' => $categoria[0]->description[0]->value,
             'miTlf' => '+34 627190899',
         ],
-        'tutoriales' => [
-            
-        ],
+        'tutoriales' => 'tuto',
     ];
     return $app['twig']->render('categoria-de-los-tutoriales.twig', $datos);
   }
