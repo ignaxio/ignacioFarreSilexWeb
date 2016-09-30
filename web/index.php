@@ -26,7 +26,7 @@ $app['annosExperiencia'] = date('Y') - 2010;
 
 // Rutas
 $app->get('/', 'Farre\HomeController::homeAction');
-$app->get('/tutoriales/taxonomy/term/{$categoriaId}', 'Farre\TutorialesController::getTutorialesDeUnaCategoriaAction');
+$app->get('/tutoriales/taxonomy/term/{$categoriaId}', 'Farre\TutorialesController::tutorialesDeUnaCategoriaAction');
 //$app->get('/tutoriales/taxonomy/term/{$categoriaId}/{tutorialId}', 'Farre\TutorialesController::getTutorialAction');
 
 $app->run();

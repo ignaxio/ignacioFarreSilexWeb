@@ -17,7 +17,7 @@ class TutorialesController {
    * @param string $categoriaId
    * @return view
    */
-  public function getTutorialesDeUnaCategoriaAction(Application $app, $categoriaId) {
+  public function tutorialesDeUnaCategoriaAction(Application $app, $categoriaId) {
     //Controlador de datos
     $this->drupalData = $app['drupal_data'];
 
