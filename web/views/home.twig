@@ -1,0 +1,96 @@
+{% extends "base.twig" %}
+
+{% block title %}{{dg.titulo}}{% endblock %}
+{% block contenido %}
+  <!-- portada -->
+  <section class="seccionAlturaNavegador portada margenSuperiror" >
+    <article>
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+        <div class="page-header">
+          <p class="titulo">{{dg.miNombre}}</p>
+        </div>
+        <h1>{{dg.titulo}}</h1>
+        <a class="hvr-icon-grow-rotate telefono text-warning" href="tel:{{dg.miTlf}}">{{dg.miTlf}}</a>
+
+      </div>
+    </article>
+  </section>
+  <!-- end portada -->  
+
+  <!-- contenido -->
+  <div class="container"> 
+
+    <!-- Experiencia profesional -->
+    <section class="experiencias row">
+      <article>
+        <div class="col-xs-12">
+          <div class="page-header">
+            <h2>{{bloque2.titulo}}</h2>
+            <p>{{bloque2.subTitulo}}</p>
+          </div>
+          <div class="row">
+            {% for categoria in bloque2.categoriasDeLosTutoriales %}
+              
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <div class="col-xs-12">
+                    <div class="box-element-contenedor row">
+                      <div>
+                        <img class="img-responsive box-element-imagen-pequena" src="{{categoria.field_categoria_imagen.0.url}}" alt="{{categoria.field_categoria_imagen.0.alt}}" >
+                      </div>
+                      <div class="box-element col-xs-12">                      
+                        <div class="box-element-contenido">
+                          <h3><a href="tutoriales/taxonomy/term/{{categoria.tid.0.value}}" title="">{{categoria.field_categoria_titulo_desc.0.value}}</a></h3>
+                          <div>
+                            {{categoria.field_categoria_descrip_corta.0.value|raw}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+            {% endfor %}
+            {#
+            <!-- ngRepeat: experiencia in vm.experiencias --><div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="experiencia in vm.experiencias" ng-mouseleave="experiencia.mostrarTecnologia = false" ng-mouseover="experiencia.mostrarTecnologia = true" ng-bind-html-unsafe="experiencia.textoCorto">
+              <div class="col-xs-12">
+                <div class="box-element-contenedor row">
+                  <div>
+                    <div class="row-experiencia-tecnologias"> 
+                      <div class="experiencia-tecnologias ng-hide" ng-show="experiencia.mostrarTecnologia" style="">
+                        <!-- ngRepeat: tecnologia in experiencia.tecnologias --><p class="tecnologia ng-scope" ng-repeat="tecnologia in experiencia.tecnologias"><span class="label label-info ng-binding">Desarrollo Bootstrap</span></p><!-- end ngRepeat: tecnologia in experiencia.tecnologias --><p class="tecnologia ng-scope" ng-repeat="tecnologia in experiencia.tecnologias"><span class="label label-info ng-binding">Desarrollo PrestaShop</span></p><!-- end ngRepeat: tecnologia in experiencia.tecnologias --><p class="tecnologia ng-scope" ng-repeat="tecnologia in experiencia.tecnologias"><span class="label label-info ng-binding">Programación PHP</span></p><!-- end ngRepeat: tecnologia in experiencia.tecnologias --><p class="tecnologia ng-scope" ng-repeat="tecnologia in experiencia.tecnologias"><span class="label label-info ng-binding">Programación JavaScript</span></p><!-- end ngRepeat: tecnologia in experiencia.tecnologias -->
+                      </div>
+                    </div>
+                    <img class="img-responsive box-element-imagen-pequena" ng-src="http://ignaciofarre.local/sites/default/files/2016-06/bird-testing-online.jpg" alt="" src="http://ignaciofarre.local/sites/default/files/2016-06/bird-testing-online.jpg">
+                  </div>
+                  <div class="box-element col-xs-12">
+                    <img class="experiencia-logo-empresa img-responsive img-circle" ng-src="http://ignaciofarre.local/sites/default/files/2016-06/bird-testing-online-logo.jpg" alt="" src="http://ignaciofarre.local/sites/default/files/2016-06/bird-testing-online-logo.jpg">
+                    <p class="text-right ng-binding">2015</p>
+                    <div class="box-element-contenido">
+                      <h3 class="ng-binding">BirdTestingOnline.com</h3>
+                      <div ng-bind-html="experiencia.textoCorto" class="ng-binding"><p>Tienda online realizada en PrestaShop 1.6 en la que cree un módulo propio e hice <strong>override sobre las clases y controladores</strong> para lograr realizar un formulario de registro con "nombre", "teléfono", "email" y "contraseña", creando una dirección personal por defecto que el cliente podía modificar.</p>
+  
+  <p>Trabajé con el core de Prestashop sobrescribiendo Clases y controladores para poder adaptar las necesidades del cliente.</p>
+  
+  <p>En cuanto al template, cloné el que tiene Prestashop por default y realizé los cambios que necesitaba el proyecto.</p>
+  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- end ngRepeat: experiencia in vm.experiencias -->
+    #}
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+
+
+
+
+  {#{dump(experiencias)}#}
+{% endblock %}
+{% block scripts %}
+  {{ parent() }}
+  <script src="/../js/_custom.js"></script>
+{% endblock %}
