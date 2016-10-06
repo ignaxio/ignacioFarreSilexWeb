@@ -14,7 +14,7 @@
             <h3>{{dg.subtitulo}}</h3>
 
             <div>
-            {{dg.texto|raw}}
+              {{dg.texto|raw}}
             </div>
           </div>
         </div>
@@ -24,26 +24,25 @@
 
   <div class="container">
     <div class="row">
-      
-      <article class="col-xs-12 col-sm-6 col-lg-4 ng-scope" ng-repeat="articulo in vm.categoria.articulos" ng-bind-html-unsafe="articulo.subtitulo">
-        <a ng-href="#/tutoriales/Drupal/como-crear-un-formulario-en-drupal-8-insertarlo-en-bloque-pagina" href="#/tutoriales/Drupal/como-crear-un-formulario-en-drupal-8-insertarlo-en-bloque-pagina">
+      {% for tutorial in tutoriales %}   
+        <article class="col-xs-12 col-sm-6 col-lg-4">
+
           <div class="col-xs-12">
             <div class="box-element-contenedor row">
               <div>                
-                <img class="img-responsive box-element-imagen-pequena" ng-src="http://ignaciofarre.local/sites/default/files/2016-06/crear-formularios-drupal-8.jpg" alt="" src="http://ignaciofarre.local/sites/default/files/2016-06/crear-formularios-drupal-8.jpg">
+                <img class="img-responsive box-element-imagen-pequena" alt="" src="http://ignaciofarre.local/sites/default/files/2016-06/crear-formularios-drupal-8.jpg">
               </div>
               <div class="box-element col-xs-12">
                 <div class="box-element-contenido">
-                  <h2 class="ng-binding">Cómo crear un formulario en drupal 8</h2>
-                  <div ng-bind-html="articulo.subtitulo" class="ng-binding"><p><span>Cómo crear un formulario en drupal 8 e insertarlo por código en un bloque o una página de tu módulo es muy fácil, en este articulo explico como hacerlo de manera clara y sencilla.</span></p>
-                  </div>
+                  <h2 class="ng-binding"><a href="{{tutorial.url}}">{{tutorial.titulo}}</a></h2>
+                  <div>{{tutorial.textoResumen}}</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row-sombra"><div class="sombra"></div></div>
-        </a>
-      </article><!-- end ngRepeat: articulo in vm.categoria.articulos -->
+        </article>
+      {% endfor %}
     </div>
   </div>
   <!-- end Página tutoriales -->
