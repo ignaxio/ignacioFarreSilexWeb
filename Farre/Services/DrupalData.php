@@ -8,6 +8,7 @@ class DrupalData {
 
   public function __construct($basePath) {
     $this->basePath = $basePath;
+    $this->basePathOld = 'http://drupal.ignaciofarre.com/ignacio-farre';
   }
 
   private function getProxy() {
@@ -35,7 +36,18 @@ class DrupalData {
 
   public function getExperiencias() {
     $this->getProxy();
-    return json_decode(file_get_contents($this->basePath . '/get-experiencias'));
+    //si me llega desde la rest nueva perfecto, si no es así, hay que cambiar las url's. ¡¡¡ Eliminar cuando se haya corregido el bug !!!
+    if($expoeriencias = json_decode(file_get_contents($this->basePath . '/get-experiencias'))) {
+      return $expoeriencias;
+    }else {   
+      //si viene de la url antigua, hay que corregir la url de las imagenes
+      $expoeriencias = json_decode(file_get_contents($this->basePathOld . '/get-experiencias'));
+      foreach ($expoeriencias as $experiencia) {
+        $experiencia->imagen500 = str_replace("ignaciofarre.local", "drupal.ignaciofarre.com", $experiencia->imagen500);
+        $experiencia->logo = str_replace("ignaciofarre.local", "drupal.ignaciofarre.com", $experiencia->logo);
+      }
+      return $expoeriencias;
+    }
   }
 
   public function getLibros() {

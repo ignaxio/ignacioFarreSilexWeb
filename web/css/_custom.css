@@ -47,10 +47,13 @@ code {
 .margenSuperiror {
   margin-top: -20px;
 }
-/*.page-header {
-  margin: 0px;
+
+.separador-top {
+  border-top: 1px solid #1c1e22;
+} 
+.separador-bottom {
   border-bottom: 1px solid #1c1e22;
-}*/
+}
 pre {
   padding: 0px;
   margin: 0px;
@@ -105,7 +108,7 @@ a .text-warning:hover {
   color: rgb(249, 184, 32);
 }
 a:link {   
- text-decoration:none;   
+  text-decoration:none;   
 }   
 
 
@@ -150,41 +153,46 @@ Estilos de portada, es el panatallazo primero
   background-size: cover;
 }
 
+
 /*****************************************************************************
 Estilos experiencia profesonal
 ******************************************************************************/
 
-.box-element {
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
+.box-element-row-content {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   /*border: 1px solid #1c1e22;*/
   background: rgb(248,148,6);
   color: #ffffff;
   padding-bottom: 20px;
 }
-.experiencia-logo-empresa {
+.box-element-logo-empresa {
   height: 100px;
   width: 100px;
   top: -50px;
   position: absolute;
 }
-.box-element-contenido {
+.box-element-content {
   /*margin-top: 30px;*/
   /*padding-top: 56.25%;*/
 }
-.box-element .text-right {
+.box-element-row .text-right {
   font-size: 22px;
   margin-top: 10px;
 }
-.box-element-imagen-pequena {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+.box-imagen {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
-.box-element-contenedor {
+.box-element-row {
   margin-bottom: 30px;  
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
 }
-.experiencia-tecnologias span {
+.box-imagen-link {
+  position: relative;
+}
+
+.etiquetas span {
   padding-left: 20px;
   padding-top: 5px;
   padding-bottom: 4px;
@@ -192,20 +200,27 @@ Estilos experiencia profesonal
 
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  margin-left: -250px;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
-.experiencia-tecnologias p {
+.etiquetas p {
   display: block;
   padding-bottom: 15px;
 }
-.row-experiencia-tecnologias {
+.row-etiquetas {
   overflow: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
+  padding-top: 15px;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
-.row-experiencia-tecnologias.experiencia-oscurecer-fondo {
-  background: rgba(0, 0, 0, 0.7) none repeat scroll 0% 0%;
+.row-etiquetas span.muestraEtiqueta {  
+  margin-left: -5px;  
+}
+
+.box-element-black {
+  background: rgba(0, 0, 0, 0.3) none repeat scroll 0% 0%;
 }
 
 /*****************************************************************************

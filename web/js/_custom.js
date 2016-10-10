@@ -47,6 +47,15 @@ $(document).ready(function () {
   var helper = new Helper();
   $('.seccionAlturaNavegador').css({'height': helper.getAturaParaBloques()});
 
-
+// Vamos a mostrar las etiquetas de los box-element
+$('.box-element-row').on({
+  mouseenter: function() {
+    $('.etiquetas span', this).addClass( "muestraEtiqueta" );
+//    $('.row-etiquetas', this).addClass('box-element-black');
+  }, mouseleave: function() {
+    $('.etiquetas span', this).removeClass( "muestraEtiqueta" );
+//    $('.row-etiquetas', this).removeClass('box-element-black');
+  }
+});
 
 });
