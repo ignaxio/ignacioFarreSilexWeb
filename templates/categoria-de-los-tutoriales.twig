@@ -1,0 +1,58 @@
+{% extends "base.twig" %}
+
+{% block title %}{{dg.subtitulo}}{% endblock %}
+{% block contenido %}
+  <div class="img-fondo-categoria margenSuperiror" style="background: url('{{dg.imagen.url}}') center center no-repeat; background-size: cover;">
+    <h1>{{dg.titulo}}</h1>
+  </div>
+  <div class="container">
+    <!-- Página tutoriales -->
+    <section class="row">
+      <div class="col-xs-12">
+        <div class="categoria">
+          <div class="page-header">            
+            <h3>{{dg.subtitulo}}</h3>
+
+            <div>
+              {{dg.texto|raw}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      {% for tutorial in tutoriales %}  
+        <article class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="col-xs-12">
+            <div class="box-element-row row">
+              <div>
+                <div class="row-etiquetas" > </div>
+                <a class="box-imagen-link" title="{{tutorial.titulo}}" href="{{ url('home') }}{{tutorial.url}}">
+                  <img class="box-imagen img-responsive" src="{{tutorial.imagen.url}}" alt="{{tutorial.imagen.alt}}">
+                </a>
+              </div>
+              <div class="box-element-row-content col-xs-12">                      
+                <div class="box-element-content">
+                  <h3><a href="/tutoriales/{{tutorial.url}}" title="{{tutorial.titulo}}">{{tutorial.titulo}}</a></h3>
+                  <div>
+                    {{tutorial.textoResumen|raw}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>  
+      {% endfor %}
+    </div>
+  </div>
+  <!-- end Página tutoriales -->
+
+  {#{dump(experiencias)}#}
+{% endblock %}
+{% block scripts %}
+  {{ parent() }}
+  <script src="/../js/_custom.js"></script>
+{% endblock %}

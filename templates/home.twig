@@ -1,0 +1,121 @@
+{% extends "base.twig" %}
+
+{% block title %}{{dg.titulo}}{% endblock %}
+{% block contenido %}
+  <!-- portada -->
+  <section class="seccionAlturaNavegador portada margenSuperiror" >
+    <article>
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+        <div class="page-header">
+          <p class="titulo">{{dg.miNombre}}</p>
+        </div>
+        <h1>{{dg.titulo}}</h1>
+        <a class="hvr-icon-grow-rotate telefono text-warning" href="tel:{{dg.miTlf}}">{{dg.miTlf}}</a>
+      </div>
+      <div class="col-xs-12">
+        <canvas id="myChart" width="400" height="250"></canvas>
+      </div>
+    </article>
+  </section>
+  <!-- end portada -->  
+
+  <!-- contenido -->
+  <!-- Experiencia profesional -->
+  <div class="separador-top">
+    <div class="container"> 
+
+
+      <section class="row">
+        <article>
+          <div class="col-xs-12">
+            <div class="page-header">
+              <h2>{{experiencias.titulo}}</h2>
+              <p>{{experiencias.subTitulo|raw}}</p>
+            </div>
+            <div class="row">
+              {% for proyecto in experiencias.proyectos %}              
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <div class="col-xs-12">
+                    <div class="box-element-row row">
+                      <div>
+                        <div class="row-etiquetas"> 
+                          <div class="etiquetas">
+                            {% for tecnologia in proyecto.tecnologias %}
+                              <p><span class="label label-info">{{tecnologia}}</span></p>
+                              {% endfor %}
+                          </div>
+                        </div>
+                        <img class="box-imagen img-responsive" alt="" src="{{proyecto.imagen500}}">
+                      </div>
+                      <div class="box-element-row-content col-xs-12">
+                        <img class="box-element-logo-empresa img-responsive img-circle" alt="" src="{{proyecto.logo}}">
+                        <p class="text-right ng-binding">{{proyecto.anno}}</p>
+                        <div class="box-element-content">
+                          <h3>{{proyecto.titulo}}</h3>
+                          <div>{{proyecto.textoCorto|raw}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+  <!-- end Experiencia profesional -->
+  <!-- Tutoriales -->
+  <div class="separador-top">
+    <div class="container"> 
+      <section class="row">
+        <article>
+          <div class="col-xs-12">
+            <div class="page-header">
+              <h2>{{tutoriales.titulo}}</h2>
+              <p>{{tutoriales.subTitulo|raw}}</p>
+            </div>
+            <div class="row">
+              {% for categoria in tutoriales.categoriasDeLosTutoriales %}              
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <div class="col-xs-12">
+                    <div class="box-element-row row">
+                      <div>
+                        <div class="row-etiquetas" > </div>
+                        <a class="box-imagen-link" href="tutoriales/taxonomy/term/{{categoria.tid.0.value}}">
+                          <img class="box-imagen img-responsive" src="{{categoria.field_categoria_imagen.0.url}}" alt="{{categoria.field_categoria_imagen.0.alt}}">
+                        </a>
+                      </div>
+                      <div class="box-element-row-content col-xs-12">                      
+                        <div class="box-element-content">
+                          <h3><a href="tutoriales/taxonomy/term/{{categoria.tid.0.value}}" title="{{categoria.field_categoria_titulo_desc.0.value}}">{{categoria.field_categoria_titulo_desc.0.value}}</a></h3>
+                          <div>
+                            {{categoria.field_categoria_descrip_corta.0.value|raw}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      </section>
+      <!-- end Tutoriales -->
+    </div>
+  </div>
+
+
+
+
+  {#{dump(experiencias)}#}
+{% endblock %}
+{% block scripts %}
+  {{ parent() }}
+  <script src="{{ asset('js/custom.js') }}"></script>
+  <script src="{{ asset('js/diagrama-de-peso.js') }}"></script>
+{% endblock %}
