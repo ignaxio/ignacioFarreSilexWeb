@@ -36,7 +36,7 @@
               </div>
               <div class="box-element-row-content col-xs-12">                      
                 <div class="box-element-content">
-                  <h3><a href="/tutoriales/{{tutorial.url}}" title="{{tutorial.titulo}}">{{tutorial.titulo}}</a></h3>
+                  <h3><a href="{{ url('home') }}{{tutorial.url}}" title="{{tutorial.titulo}}">{{tutorial.titulo}}</a></h3>
                   <div>
                     {{tutorial.textoResumen|raw}}
                   </div>

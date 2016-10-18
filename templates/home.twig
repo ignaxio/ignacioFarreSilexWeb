@@ -85,13 +85,13 @@
                     <div class="box-element-row row">
                       <div>
                         <div class="row-etiquetas" > </div>
-                        <a class="box-imagen-link" href="tutoriales/taxonomy/term/{{categoria.tid.0.value}}">
+                        <a class="box-imagen-link" href="{{ url('home') }}tutoriales/taxonomy/term/{{categoria.tid.0.value}}">
                           <img class="box-imagen img-responsive" src="{{categoria.field_categoria_imagen.0.url}}" alt="{{categoria.field_categoria_imagen.0.alt}}">
                         </a>
                       </div>
                       <div class="box-element-row-content col-xs-12">                      
                         <div class="box-element-content">
-                          <h3><a href="tutoriales/taxonomy/term/{{categoria.tid.0.value}}" title="{{categoria.field_categoria_titulo_desc.0.value}}">{{categoria.field_categoria_titulo_desc.0.value}}</a></h3>
+                          <h3><a href="{{ url('home') }}tutoriales/taxonomy/term/{{categoria.tid.0.value}}" title="{{categoria.field_categoria_titulo_desc.0.value}}">{{categoria.field_categoria_titulo_desc.0.value}}</a></h3>
                           <div>
                             {{categoria.field_categoria_descrip_corta.0.value|raw}}
                           </div>
