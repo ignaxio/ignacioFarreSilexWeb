@@ -41,7 +41,7 @@ class DrupalData {
 //      return $expoeriencias;
 //    }else {   
     //si viene de la url antigua, hay que corregir la url de las imagenes
-    $expoeriencias = json_decode(file_get_contents($this->basePathOld . '/get-experiencias'));
+    $expoeriencias = json_decode(file_get_contents($this->basePath . '/get-experiencias'));
     foreach ($expoeriencias as $experiencia) {
       $experiencia->imagen500 = str_replace("ignaciofarre.local", "drupal.ignaciofarre.com", $experiencia->imagen500);
       $experiencia->logo = str_replace("ignaciofarre.local", "drupal.ignaciofarre.com", $experiencia->logo);
